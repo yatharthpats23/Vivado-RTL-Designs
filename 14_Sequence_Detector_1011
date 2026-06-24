@@ -1,0 +1,18 @@
+# Sequence Detector (1011)
+
+## Description
+Detects the binary sequence 1011 using a Moore FSM.
+
+## Inputs
+- clk
+- rst
+- x
+
+## Output
+- y
+
+## Sequence
+1011
+
+## Tool
+Vivado 2025.2
