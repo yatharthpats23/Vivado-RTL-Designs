@@ -1,0 +1,46 @@
+# Universal Shift Register
+
+## Description
+A 4-bit Universal Shift Register designed in Verilog.
+
+The register can perform multiple operations based on the select inputs:
+- Hold data
+- Shift Left
+- Shift Right
+- Parallel Load
+
+## Inputs
+- clk : Clock signal
+- rst : Reset signal
+- sel[1:0] : Operation select
+- din : Serial data input
+- pdata[3:0] : Parallel data input
+
+## Output
+- q[3:0] : Register output
+
+## Operation Table
+
+| sel | Operation |
+|------|-----------|
+| 00 | Hold |
+| 01 | Shift Right |
+| 10 | Shift Left |
+| 11 | Parallel Load |
+
+## Features
+- Synchronous operation
+- 4-bit data width
+- Supports serial and parallel data transfer
+- Reset functionality
+
+## Files
+- universal_shift_register.v
+- stimuli.v
+- waveform.png
+
+## Tool Used
+- Xilinx Vivado 2025.2
+
+## Author
+Yatharth Pathak
