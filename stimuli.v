@@ -3,7 +3,7 @@
 // Company: 
 // Engineer: 
 // 
-// Create Date: 24.06.2026 11:33:28
+// Create Date: 23.06.2026 17:02:35
 // Design Name: 
 // Module Name: stimuli
 // Project Name: 
@@ -18,19 +18,23 @@
 // Additional Comments:
 // 
 //////////////////////////////////////////////////////////////////////////////////
+
+
 module stimuli;
 
 reg clk;
 reg rst;
-reg x;
+reg [1:0] sel;
+reg [3:0] din;
 
-wire y;
+wire [3:0] q;
 
-sequence_detector uut(
+universal_shift_register uut(
     .clk(clk),
     .rst(rst),
-    .x(x),
-    .y(y)
+    .sel(sel),
+    .din(din),
+    .q(q)
 );
 
 always #5 clk = ~clk;
@@ -39,15 +43,26 @@ initial
 begin
     clk = 0;
     rst = 1;
-    x = 0;
+    sel = 2'b00;
+    din = 4'b0000;
 
     #10 rst = 0;
 
-    x=1; #10;
-    x=0; #10;
-    x=1; #10;
-    x=1; #10;
+    // Parallel Load
+    sel = 2'b11;
+    din = 4'b1010;
+    #10;
 
+    // Shift Left
+    sel = 2'b10;
+    #20;
+
+    // Shift Right
+    sel = 2'b01;
+    #20;
+
+    // Hold
+    sel = 2'b00;
     #20;
 
     $finish;
