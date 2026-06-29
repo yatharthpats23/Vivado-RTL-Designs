@@ -9,6 +9,9 @@ This repository contains RTL design projects implemented in Verilog and verified
 3. Johnson Counter
 4. Universal Shift Register
 5. Sequence Detector (1011)
+6. 8x8 fifo
+7. spi protocol
+8. uart protocol
 
 ## Tools Used
 - Verilog HDL
